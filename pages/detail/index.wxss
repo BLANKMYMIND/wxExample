@@ -1,0 +1,212 @@
+Page {
+  --topImgH: 400rpx; /* 头图高度 */
+  --topImgP: 375rpx; /* 页面开头高度 */
+
+  --bgcolorB: rgb(240, 240, 240); /* 底色 */
+  --bgcolorF: rgb(250, 250, 250); /* 一般卡片背景色 */
+  --bgcolorD: rgb(255, 255, 255); /* 动态卡片背景色 */
+
+  --navfontSize: 15px; /* 导航栏字号 px */
+  --titlefontSize: 30rpx; /* 标题字号 */
+  --ltitlefontSize: 28rpx; /* 小标题字号 */
+  --ltitlefontLH: 42rpx; /* 小标题行高 1.5 倍字号 */
+  --ctitlefontSize: 30rpx; /* 卡片标题字号 */
+  --cinfofontSize: 28rpx; /* 卡片信息字号 */
+  --cnobodyfontSize: 26rpx; /* 卡片辅助信息字号 */
+  --softColor: rgba(0, 0, 0, 0.52); /* 舒适阅读字体颜色 */
+  --normalColor: rgba(0, 0, 0, 0.6); /* 普通信息字体颜色 */
+  --titleColor: rgba(0, 0, 0, 0.75); /* 标题字体颜色 */
+  --nobodyColor: rgba(0, 0, 0, 0.4); /* 辅助信息字体颜色 */
+  --borderColor: rgba(0, 0, 0, 0.1); /* 一般线体颜色 */
+}
+
+.topImageContainer {
+  width: 750rpx;
+  height: var(--topImgH);
+  overflow: hidden;
+  padding-bottom: 0;
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: -2;
+}
+
+.topImage {
+  width: 750rpx;
+  height: var(--topImgH)
+}
+
+.navi {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  height: 0;
+  background: var(--bgcolorB);
+  width: 750rpx;
+  border-bottom: solid 1rpx var(--borderColor);
+  transition: all 0.3s ease;
+}
+
+.naviContent {
+  position: relative;
+  font-size: var(--navfontSize);
+  font-weight: 700;
+  line-height: 30px;
+  left: 62px;
+}
+
+.naviback {
+  position: fixed;
+  z-index: 3;
+  background: var(--bgcolorB);
+  width: 30px;
+  height: 30px;
+  line-height: 26px;
+  text-align: center;
+  border-radius: 15px;
+  left: 16px;
+}
+
+.container {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 750rpx;
+}
+
+.mainContainer {
+  margin-top: var(--topImgP);
+  background: var(--bgcolorB);
+  border-top-left-radius: 25rpx;
+  border-top-right-radius: 25rpx;
+}
+
+.backContainer {
+  z-index: -3;
+  min-height: 100vh;
+  width: 750rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--bgcolorB)
+}
+
+.info-container {
+  background: var(--bgcolorB);
+  border-radius: 25rpx;
+}
+
+.dyContainer {
+  transition: all 1s ease;
+}
+
+.loading {
+  text-align: center;
+  font-size: 30rpx;
+  color: var(--nobodyColor);
+  margin: 40rpx;
+  font-weight: 700;
+}
+
+.card {
+  background: var(--bgcolorF);
+  margin: 32rpx;
+  border-radius: 20rpx;
+  padding: 36rpx;
+}
+
+.dycard {
+  background: var(--bgcolorD);
+  margin: 32rpx;
+  border-radius: 20rpx;
+  padding: 36rpx;
+}
+
+.title {
+  padding-top: 30rpx;
+  text-align: center;
+  font-weight: 700;
+  font-size: var(--titlefontSize);
+  color: var(--titleColor);
+}
+
+.stitle {
+  height: var(--ltitlefontLH);
+  width: fit-content;
+  line-height: var(--ltitlefontLH);
+  text-align: center;
+  border: solid 1rpx var(--borderColor);
+  margin: 10rpx auto auto auto;
+  padding: 0 14rpx 0 14rpx;
+  border-radius: 12rpx;
+}
+
+.sstitle {
+  height: var(--ltitlefontLH);
+  width: fit-content;
+  line-height: var(--ltitlefontLH);
+  text-align: center;
+  font-size: var(--ltitlefontSize);
+  color: var(--normalColor);
+  margin: 0;
+}
+
+.state {
+  padding-top: 14rpx;
+  text-align: center;
+  font-weight: 700;
+  font-size: var(--ltitlefontSize);
+  color: rgba(45, 230, 39, 0.6)
+}
+
+/* color: rgba(116, 241, 13, 1); */
+
+.card-title {
+  font-size: var(--ctitlefontSize);
+  color: var(--titleColor);
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-info {
+  margin-top: 30rpx;
+  font-size: var(--cinfofontSize);
+  color: var(--softColor);
+}
+
+.card-row {
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-right {
+  font-weight: 700;
+}
+
+.card-between {
+  border-left: solid 1rpx var(--borderColor);
+}
+
+.card-operation {
+  font-size: var(--ctitlefontSize);
+  color: var(--titleColor);
+  font-weight: 700;
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-comment {
+  margin-top: 30rpx;
+}
+
+.card-user {
+  margin-top: 10rpx;
+  text-align: right;
+  font-size: var(--cnobodyfontSize);
+  color: var(--nobodyColor);
+}

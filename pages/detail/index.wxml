@@ -1,0 +1,283 @@
+<view class="topImageContainer">
+    <image class="topImage" src="../../static/xrm.jpg" mode="aspectFill"></image>
+</view>
+<view class="naviback" style="top: {{tophight+7}}px" bindtap="toBack">
+    <mp-icon icon="back" color="black" size="16"></mp-icon>
+  </view>
+<view class="navi" style="height: {{tophight+44}}px;opacity: {{isScoped ? 1 : 0}}">
+  <view class="naviContent" style="top: {{tophight+7}}px">
+    <text>史上最好的逗猫棒</text>
+  </view>
+</view>
+<view class="container">
+    <view class="mainContainer">
+      <view class="info-container" style="top: {{tophight}}px">
+        <view class="title">
+          <text>史上最好的逗猫棒</text>
+        </view>
+        <view class="stitle">
+          <view class="sstitle">
+          <text>E-2426A</text>
+          </view>
+        </view>
+
+        <view class="state" style="color: rgba(230, 77, 39, 0.6)" wx:if="{{loading}}">
+          <text>加载中...</text>
+        </view>
+        <view class="state" style="color: rgba(230, 77, 39, 0.6)" wx:elif="{{borrowed}}">
+          <text>已借用</text>
+        </view>
+        <view class="state" style="color: rgba(230, 77, 39, 0.6)" wx:elif="{{subscribed}}">
+          <text>已预约</text>
+        </view>
+        <view class="state" style="color: rgba(230, 77, 39, 0.6)" wx:elif="{{!canBorrow}}">
+          <text>不可借用</text>
+        </view>
+        <view class="state" style="color: rgba(45, 230, 39, 0.6)" wx:else>
+          <text>可预约</text>
+        </view>
+      </view>
+      
+      <view class="dyContainer">
+        <view class="loading" wx:if="{{loading}}">
+          <text>正在加载</text>
+        </view>
+        <view wx:else>
+          <view class="dycard" wx:if="{{canBorrow && !tracked && !subscribed}}">
+            <view class="card-operation">
+              <view class="card-left">
+                <text>预约借用</text>
+              </view>
+              <view class="card-between">
+              </view>
+              <view class="card-right">
+                <text>跟踪设备</text>
+              </view>
+            </view>
+          </view>
+          <view class="dycard" wx:elif="{{canBorrow && tracked && !subscribed}}">
+            <view class="card-operation">
+              <view class="card-left">
+                <text>预约借用</text>
+              </view>
+              <view class="card-between">
+              </view>
+              <view class="card-right" style="color: rgba(0, 0, 0, 0.25)">
+                <text>正在跟踪</text>
+              </view>
+            </view>
+          </view>
+          <view class="dycard" wx:elif="{{!tracked}}">
+            <view class="card-operation">
+              <view class="card-left">
+                <text>跟踪设备</text>
+              </view>
+            </view>
+          </view>
+          <view class="dycard" wx:else>
+            <view class="card-operation">
+              <view class="card-left" style="color: rgba(0, 0, 0, 0.25)">
+                <text>正在跟踪</text>
+              </view>
+            </view>
+          </view>
+          <view class="dycard" wx:if="{{subscribed}}">
+            <view class="card-title">
+              <view class="card-left">
+                <text>您已预约</text>
+              </view>
+              <view class="card-right">
+                <mp-icon icon="arrow" color="black" size="16"></mp-icon>
+              </view>
+            </view>
+            <view class="card-info">
+              <text>您排在约第 4 位，请耐心等待排位</text>
+            </view>
+          </view>
+          <view class="dycard" wx:if="{{borrowed}}">
+            <view class="card-title">
+              <view class="card-left">
+                <text>您已借用</text>
+              </view>
+              <view class="card-right">
+                <mp-icon icon="arrow" color="black" size="16"></mp-icon>
+              </view>
+            </view>
+            <view class="card-info">
+              <text>请于 2020-4-14 前归还</text>
+            </view>
+          </view>
+          <view class="dycard" wx:if="{{!canBorrow && !subscribed && !borrowed}}">
+            <view class="card-title">
+              <view class="card-left">
+                <text>{{whyCanBorrow}}</text>
+              </view>
+              <view class="card-right">
+                <mp-icon icon="arrow" color="black" size="16"></mp-icon>
+              </view>
+            </view>
+            <view class="card-info">
+              <text>您可以跟踪设备以收到设备的最新信息</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="card">
+        <view class="card-title">
+          <view class="card-left">
+            <text>基本信息</text>
+          </view>
+          <view class="card-right">
+          </view>
+        </view>
+        <view class="card-info">
+          <view class="card-row">
+            <view class="card-left">
+              <text>设备型号</text>
+            </view>
+            <view class="card-right">
+              <text>E-2426A</text>
+            </view>
+          </view>
+          <view class="card-row">
+            <view class="card-left">
+              <text>设备编号</text>
+            </view>
+            <view class="card-right">
+              <text>201726012601</text>
+            </view>
+          </view>
+          <view class="card-row">
+            <view class="card-left">
+              <text>保管人姓名</text>
+            </view>
+            <view class="card-right">
+              <text>刘旺</text>
+            </view>
+          </view>
+          <view class="card-row">
+            <view class="card-left">
+              <text>保管人电话</text>
+            </view>
+            <view class="card-right">
+              <text>15811111111</text>
+            </view>
+          </view>
+          <view class="card-row">
+            <view class="card-left">
+              <text>存放场地</text>
+            </view>
+            <view class="card-right">
+              <text>湖南大学天马园区</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="card">
+        <view class="card-title">
+          <view class="card-left">
+            <text>借用评论</text>
+          </view>
+          <view class="card-right">
+            <mp-icon icon="arrow" color="black" size="16"></mp-icon>
+          </view>
+        </view>
+        <view class="card-info">
+          <view class="card-comment">
+            <view class="card-sentence">
+              <text>We also advise users who are already familiar with SQL to read this chapter carefully because it contains several rules and concepts that are implemented inconsistently among SQL databases or that are specific to PostgreSQL.</text>
+            </view>
+            <view class="card-user">
+              <text>旺哥</text>
+            </view>
+          </view>
+          <view class="card-comment">
+            <view class="card-sentence">
+              <text>This chapter describes the syntax of SQL. It forms the foundation for understanding the following chapters which will go into detail about how SQL commands are applied to define and modify data.</text>
+            </view>
+            <view class="card-user">
+              <text>旺哥</text>
+            </view>
+          </view>
+          <view class="card-comment">
+            <view class="card-sentence">
+              <text>啊啊啊啊啊啊！！觉得旺哥好牛皮，旺哥好强，旺哥我爱你！！！！</text>
+            </view>
+            <view class="card-user">
+              <text>旺哥</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="card">
+        <view class="card-title">
+          <view class="card-left">
+            <text>字体测试</text>
+          </view>
+        </view>
+        <view class="card-info">
+          <view style="font-weight: 100">
+            <text>字重 100</text>
+          </view>
+          <view style="font-weight: 200">
+            <text>字重 200</text>
+          </view>
+          <view style="font-weight: 300">
+            <text>字重 300</text>
+          </view>
+          <view style="font-weight: 400">
+            <text>字重 400</text>
+          </view>
+          <view style="font-weight: 500">
+            <text>字重 500</text>
+          </view>
+          <view style="font-weight: 600">
+            <text>字重 600</text>
+          </view>
+          <view style="font-weight: 700">
+            <text>字重 700</text>
+          </view>
+          <view style="font-weight: 800">
+            <text>字重 800</text>
+          </view>
+          <view style="font-weight: 900">
+            <text>字重 900</text>
+          </view>
+          <view style="font-weight: 1000">
+            <text>字重 1000</text>
+          </view>
+          <view style="font-weight: 700; color: rgba(0,0,0,0.1)">
+            <text>透明 0.1</text>
+          </view>
+          <view style="font-weight: 700; color: rgba(0,0,0,0.2)">
+            <text>透明 0.2</text>
+          </view>
+          <view style="font-weight: 700; color: rgba(0,0,0,0.3)">
+            <text>透明 0.3</text>
+          </view>
+          <view style="font-weight: 700; color: rgba(0,0,0,0.4)">
+            <text>透明 0.4</text>
+          </view>
+          <view style="font-weight: 700; color: rgba(0,0,0,0.5)">
+            <text>透明 0.5</text>
+          </view>
+          <view style="font-weight: 700; color: rgba(0,0,0,0.6)">
+            <text>透明 0.6</text>
+          </view>
+          <view style="font-weight: 700; color: rgba(0,0,0,0.7)">
+            <text>透明 0.7</text>
+          </view>
+          <view style="font-weight: 700; color: rgba(0,0,0,0.8)">
+            <text>透明 0.8</text>
+          </view>
+          <view style="font-weight: 700; color: rgba(0,0,0,0.9)">
+            <text>透明 0.9</text>
+          </view>
+          <view style="font-weight: 700; color: rgba(0,0,0,1.0)">
+            <text>透明 1.0</text>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>
+<view class="backContainer"></view>
