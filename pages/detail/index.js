@@ -5,8 +5,12 @@ Page({
     tophight: wx.getSystemInfoSync().statusBarHeight, // 获取状态栏高度
     imgTop: 0, // 用于头图的变速滑动
     isScoped: false, // 用于导航栏的滑动显示
+
     opBackground: '', // 用于控制按钮的阴影变化
     dyHeight: 0, // 用于控制动态容器展示高度，以便动画
+
+    selTable: false, // 用于控制 选择面板 开启
+    selTableH: 1000,
 
     loading: true, // 加载状态
 
@@ -21,8 +25,13 @@ Page({
   },
   onLoad: function () {
     var that = this
-    console.log('代码片段是一种迷你、可分享的小程序或小游戏项目，可用于分享小程序和小游戏的开发经验、展示组件和 API 的使用、复现开发问题和 Bug 等。可点击以下链接查看代码片段的详细文档：')
-    console.log('https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html')
+    
+    // 设置选择面板高度
+    wx.createSelectorQuery().selectAll('.selContainer').boundingClientRect(function (rect) {
+      that.setData({
+        selTableH: (rect[0].height),
+      })
+    }).exec()
     
     // 模拟加载
     setTimeout(() => {
@@ -78,5 +87,23 @@ Page({
   },
   toBack: function () {
     wx.navigateBack({})
+  },
+  openTable: function () {
+    var that = this
+    wx.createSelectorQuery().selectAll('.selContainer').boundingClientRect(function (rect) {
+      that.setData({
+        selTableH: (rect[0].height),
+        selTable: true,
+      })
+    }).exec()
+  },
+  closeTable: function() {
+    var that = this
+    wx.createSelectorQuery().selectAll('.selContainer').boundingClientRect(function (rect) {
+      that.setData({
+        selTableH: (rect[0].height),
+        selTable: false,
+      })
+    }).exec()
   }
 })

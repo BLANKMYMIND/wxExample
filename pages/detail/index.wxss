@@ -19,6 +19,7 @@ Page {
   --titleColor: rgba(0, 0, 0, 0.75); /* 标题字体颜色 */
   --nobodyColor: rgba(0, 0, 0, 0.4); /* 辅助信息字体颜色 */
   --borderColor: rgba(0, 0, 0, 0.1); /* 一般线体颜色 */
+  --acceptColor: rgba(45, 230, 39, 0.6) /* 接受指示颜色 */
 }
 
 .topImageContainer {
@@ -92,6 +93,32 @@ Page {
   top: 0;
   left: 0;
   background: var(--bgcolorB)
+}
+
+.selContainer {
+  position: fixed;
+  z-index: 6;
+  width: 750rpx;
+  box-shadow: 0 0 8rpx rgba(0, 0, 0, 0.1);
+  background: rgb(255, 255, 255);
+  left: 0;
+  border-top-left-radius: 25rpx;
+  border-top-right-radius: 25rpx;
+  transition: all 0.3s ease;
+}
+
+.selBackContainer {
+  z-index: 5;
+  height: 100vh;
+  width: 750rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.selMain {
+  margin: 36rpx;
 }
 
 .info-container {
@@ -211,4 +238,51 @@ Page {
   text-align: right;
   font-size: var(--cnobodyfontSize);
   color: var(--nobodyColor);
+}
+
+.sel-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 44rpx;
+  margin-bottom: 44rpx;
+}
+
+.sel-left {
+  font-size: var(--ctitlefontSize);
+  color: var(--titleColor);
+  font-weight: 700;
+  width: 25%;
+  text-align: right;
+  padding-right: 18rpx;
+  padding-left: 18rpx;
+}
+
+.sel-right {
+  width: 75%;
+  padding-left: 18rpx;
+  padding-right: 18rpx;
+  color: var(--normalColor);
+  font-size: var(--cnobodyfontSize);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.sel-option {
+  height: 52rpx;
+  border-radius: 26rpx;
+  line-height: 52rpx;
+  padding-left: 26rpx;
+  padding-right: 26rpx;
+  border: solid 1rpx var(--borderColor);
+  margin-bottom: 18rpx;
+  margin-right: 18rpx;
+}
+
+.sel-link {
+  font-size: var(--ctitlefontSize);
+  font-weight: 700;
+  color: rgba(255, 174, 0, 0.6);
 }

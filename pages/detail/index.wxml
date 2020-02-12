@@ -1,14 +1,19 @@
 <view class="topImageContainer" style="top: -{{imgTop}}px">
     <image class="topImage" src="../../static/xrm.jpg" mode="aspectFill"></image>
 </view>
+
 <view class="naviback" style="top: {{tophight+7}}px" bindtap="toBack">
     <mp-icon icon="back" color="black" size="16"></mp-icon>
   </view>
+
 <view class="navi" style="height: {{tophight+44}}px;opacity: {{isScoped ? 1 : 0}}">
   <view class="naviContent" style="top: {{tophight+7}}px">
     <text>史上最好的逗猫棒</text>
   </view>
 </view>
+
+<view class="backContainer"></view>
+
 <view class="container">
     <view class="mainContainer">
       <view class="info-container" style="top: {{tophight}}px">
@@ -43,7 +48,7 @@
           <view class="opcard" style="box-shadow: {{opBackground}}">
 
             <view class="card-operation">
-              <view class="card-left" wx:if="{{canBorrow && !tracked && !subscribed}}">
+              <view class="card-left" wx:if="{{canBorrow && !tracked && !subscribed}}" bindtap="openTable">
                 <text>预约借用</text>
               </view>
               <view class="card-between" wx:if="{{canBorrow && !tracked && !subscribed}}">
@@ -258,4 +263,45 @@
       </view>
     </view>
 </view>
-<view class="backContainer"></view>
+
+
+<view class="selContainer" style="bottom:{{selTable ? 0 : '-' + selTableH + 'px'}}">
+  <view class="selMain">
+
+    <view class="sel-row">
+      <view class="sel-left">
+        <text>选择月份</text>
+      </view>
+      <view class="sel-right">
+        <view class="sel-option">
+          <text>2019年11月</text>
+        </view>
+        <view class="sel-option" style="border: solid 1rpx rgba(45, 230, 39, 0.6); font-weight: 700; color: rgba(45, 230, 39, 0.6);">
+          <text>2019年12月</text>
+        </view>
+        <view class="sel-option">
+          <text>2020年1月</text>
+        </view>
+      </view>
+    </view>
+    <view class="sel-row">
+      <view class="sel-left">
+        <text>选择日期</text>
+      </view>
+      <view class="sel-right">
+        <view class="sel-link">
+          <text>点击去选择 ></text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="opcard" style="box-shadow: {{opBackground}}">
+    <view class="card-operation">
+      <view class="card-left">
+        <text>确定预约</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="selBackContainer" wx:if="{{selTable}}" bindtap="closeTable"></view>
