@@ -292,3 +292,27 @@ Page {
   font-weight: 700;
   color: rgba(255, 174, 0, 0.6);
 }
+
+.sview-main {
+  height: 300rpx;
+  margin-top: 44rpx;
+  margin-bottom: 44rpx;
+  width: 750rpx;
+  white-space: nowrap;
+}
+
+.sview-item {
+  height: 300rpx;
+  width: 500rpx;
+  display: inline-block;
+  margin-right: 24rpx;
+  border-radius: 12rpx;
+  overflow: hidden;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.sview-img {
+  height: 300rpx;
+  width: 500rpx;
+  
+}

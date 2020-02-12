@@ -123,6 +123,24 @@
 
       </view>
     </view>
+
+    <view class="sview">
+      <scroll-view scroll-x="true" class="sview-main">
+        <view class="sview-item" style="margin-left: 44rpx">
+          <image class="sview-img" src="../../static/r1.jpg" mode="aspectFill">
+          </image>
+        </view>
+        <view class="sview-item">
+          <image class="sview-img" src="../../static/r2.jpg" mode="aspectFill">
+          </image>
+        </view>
+        <view class="sview-item" style="margin-right: 44rpx">
+          <image class="sview-img" src="../../static/r3.jpg" mode="aspectFill">
+          </image>
+        </view>
+      </scroll-view>
+    </view>
+
     <view class="card">
       <view class="card-title">
         <view class="card-left">
