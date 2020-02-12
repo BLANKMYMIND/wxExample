@@ -5,5 +5,5 @@
 #### 页面
 `/pages/detail/index`
 #### 预览图
-![](./preview/detail.png)
+![](./preview/detail.gif)
 
