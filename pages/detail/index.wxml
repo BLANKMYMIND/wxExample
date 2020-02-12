@@ -1,4 +1,4 @@
-<view class="topImageContainer">
+<view class="topImageContainer" style="top: -{{imgTop}}px">
     <image class="topImage" src="../../static/xrm.jpg" mode="aspectFill"></image>
 </view>
 <view class="naviback" style="top: {{tophight+7}}px" bindtap="toBack">
@@ -21,7 +21,7 @@
           </view>
         </view>
 
-        <view class="state" style="color: rgba(230, 77, 39, 0.6)" wx:if="{{loading}}">
+        <view class="state" wx:if="{{loading}}">
           <text>加载中...</text>
         </view>
         <view class="state" style="color: rgba(230, 77, 39, 0.6)" wx:elif="{{borrowed}}">
@@ -38,89 +38,67 @@
         </view>
       </view>
       
-      <view class="dyContainer">
-        <view class="loading" wx:if="{{loading}}">
-          <text>正在加载</text>
-        </view>
-        <view wx:else>
-          <view class="dycard" wx:if="{{canBorrow && !tracked && !subscribed}}">
+      <view class="dyContainer" style="height: {{dyHeight}}rpx">
+        <view class="dymain" wx:if="{{!loading}}">
+          <view class="opcard" style="box-shadow: {{opBackground}}">
+
             <view class="card-operation">
-              <view class="card-left">
+              <view class="card-left" wx:if="{{canBorrow && !tracked && !subscribed}}">
                 <text>预约借用</text>
               </view>
-              <view class="card-between">
+              <view class="card-between" wx:if="{{canBorrow && !tracked && !subscribed}}">
               </view>
-              <view class="card-right">
+              <view class="card-right" wx:if="{{!tracked}}">
                 <text>跟踪设备</text>
               </view>
-            </view>
-          </view>
-          <view class="dycard" wx:elif="{{canBorrow && tracked && !subscribed}}">
-            <view class="card-operation">
-              <view class="card-left">
-                <text>预约借用</text>
-              </view>
-              <view class="card-between">
-              </view>
-              <view class="card-right" style="color: rgba(0, 0, 0, 0.25)">
+              <view class="card-right" style="color: rgba(0, 0, 0, 0.25)" wx:else>
                 <text>正在跟踪</text>
               </view>
             </view>
+
           </view>
-          <view class="dycard" wx:elif="{{!tracked}}">
-            <view class="card-operation">
-              <view class="card-left">
-                <text>跟踪设备</text>
+
+              <view class="dycard" wx:if="{{subscribed}}">
+                <view class="card-title">
+                  <view class="card-left">
+                    <text>您已预约</text>
+                  </view>
+                  <view class="card-right">
+                    <mp-icon icon="arrow" color="black" size="16"></mp-icon>
+                  </view>
+                </view>
+                <view class="card-info">
+                  <text>您排在约第 4 位，请耐心等待排位</text>
+                </view>
               </view>
-            </view>
+
+              <view class="dycard" wx:if="{{borrowed}}">
+                <view class="card-title">
+                  <view class="card-left">
+                    <text>您已借用</text>
+                  </view>
+                  <view class="card-right">
+                    <mp-icon icon="arrow" color="black" size="16"></mp-icon>
+                  </view>
+                </view>
+                <view class="card-info">
+                  <text>请于 2020-4-14 前归还</text>
+                </view>
+              </view>
+              <view class="dycard" wx:if="{{!canBorrow && !subscribed && !borrowed}}">
+                <view class="card-title">
+                  <view class="card-left">
+                    <text>{{whyCanBorrow}}</text>
+                  </view>
+                  <view class="card-right">
+                    <mp-icon icon="arrow" color="black" size="16"></mp-icon>
+                  </view>
+                </view>
+                <view class="card-info">
+                  <text>您可以跟踪设备以收到设备的最新信息</text>
+                </view>
+              </view>
           </view>
-          <view class="dycard" wx:else>
-            <view class="card-operation">
-              <view class="card-left" style="color: rgba(0, 0, 0, 0.25)">
-                <text>正在跟踪</text>
-              </view>
-            </view>
-          </view>
-          <view class="dycard" wx:if="{{subscribed}}">
-            <view class="card-title">
-              <view class="card-left">
-                <text>您已预约</text>
-              </view>
-              <view class="card-right">
-                <mp-icon icon="arrow" color="black" size="16"></mp-icon>
-              </view>
-            </view>
-            <view class="card-info">
-              <text>您排在约第 4 位，请耐心等待排位</text>
-            </view>
-          </view>
-          <view class="dycard" wx:if="{{borrowed}}">
-            <view class="card-title">
-              <view class="card-left">
-                <text>您已借用</text>
-              </view>
-              <view class="card-right">
-                <mp-icon icon="arrow" color="black" size="16"></mp-icon>
-              </view>
-            </view>
-            <view class="card-info">
-              <text>请于 2020-4-14 前归还</text>
-            </view>
-          </view>
-          <view class="dycard" wx:if="{{!canBorrow && !subscribed && !borrowed}}">
-            <view class="card-title">
-              <view class="card-left">
-                <text>{{whyCanBorrow}}</text>
-              </view>
-              <view class="card-right">
-                <mp-icon icon="arrow" color="black" size="16"></mp-icon>
-              </view>
-            </view>
-            <view class="card-info">
-              <text>您可以跟踪设备以收到设备的最新信息</text>
-            </view>
-          </view>
-        </view>
       </view>
       <view class="card">
         <view class="card-title">

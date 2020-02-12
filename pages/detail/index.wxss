@@ -3,9 +3,10 @@ Page {
   --topImgP: 375rpx; /* 页面开头高度 */
 
   --bgcolorB: rgb(240, 240, 240); /* 底色 */
+  --bgcolorO: rgb(255, 255, 255); /* 操作选项卡片背景色 */
   --bgcolorF: rgb(250, 250, 250); /* 一般卡片背景色 */
-  --bgcolorD: rgb(255, 255, 255); /* 动态卡片背景色 */
-
+  --bgcolorD: rgb(250, 250, 250); /* 动态卡片背景色 */
+  /* rgba(255, 255, 255, 0.3); */
   --navfontSize: 15px; /* 导航栏字号 px */
   --titlefontSize: 30rpx; /* 标题字号 */
   --ltitlefontSize: 28rpx; /* 小标题字号 */
@@ -26,7 +27,6 @@ Page {
   overflow: hidden;
   padding-bottom: 0;
   position: fixed;
-  top: 0rpx;
   left: 0rpx;
   z-index: -2;
 }
@@ -100,28 +100,30 @@ Page {
 }
 
 .dyContainer {
-  transition: all 1s ease;
-}
-
-.loading {
-  text-align: center;
-  font-size: 30rpx;
-  color: var(--nobodyColor);
-  margin: 40rpx;
-  font-weight: 700;
+  transition: all 0.6s ease;
+  height: 0;
+  overflow: hidden;
 }
 
 .card {
   background: var(--bgcolorF);
-  margin: 32rpx;
+  margin: 24rpx 0 24rpx 0;
   border-radius: 20rpx;
   padding: 36rpx;
 }
 
 .dycard {
   background: var(--bgcolorD);
-  margin: 32rpx;
+  margin: 44rpx;
   border-radius: 20rpx;
+  padding: 36rpx;
+}
+
+.opcard {
+  background: var(--bgcolorO);
+  transition: all 1s ease;
+  border-radius: 20rpx;
+  margin: 44rpx;
   padding: 36rpx;
 }
 
@@ -159,7 +161,7 @@ Page {
   text-align: center;
   font-weight: 700;
   font-size: var(--ltitlefontSize);
-  color: rgba(45, 230, 39, 0.6)
+  color: rgba(39, 154, 230, 0.6)
 }
 
 /* color: rgba(116, 241, 13, 1); */
