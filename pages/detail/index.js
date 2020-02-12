@@ -22,6 +22,8 @@ Page({
 
     whyCanBorrow: '设备损坏', // 不可借用原因
 
+    short: true,
+
   },
   onLoad: function () {
     var that = this
@@ -46,13 +48,14 @@ Page({
           })
         }).exec()
       })
-    }, 1000)
+    }, 2000)
 
+    // 操作选项卡片阴影呼吸
     setInterval(() => {
       if (!that.data.loading) {
         if (that.data.opBackground === '0 0 20rpx rgba(0, 0, 0, 0.1)') {
           that.setData({
-            opBackground: '0 0 12px rgba(0, 0, 0, 0.1)',
+            opBackground: '0 0 12rpx rgba(0, 0, 0, 0.1)',
           })
         } else {
           that.setData({

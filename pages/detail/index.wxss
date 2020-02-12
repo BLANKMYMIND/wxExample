@@ -104,7 +104,7 @@ Page {
   left: 0;
   border-top-left-radius: 25rpx;
   border-top-right-radius: 25rpx;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 .selBackContainer {
