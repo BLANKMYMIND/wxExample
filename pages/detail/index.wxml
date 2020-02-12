@@ -14,17 +14,18 @@
 
 <view class="backContainer"></view>
 
+<view class="title">
+  <text>史上最好的逗猫棒</text>
+  <view class="stitle">
+    <view class="sstitle">
+      <text>E-2426A</text>
+    </view>
+  </view>
+</view>
+
 <view class="container">
   <view class="mainContainer">
     <view class="info-container" style="top: {{tophight}}px">
-      <view class="title">
-        <text>史上最好的逗猫棒</text>
-      </view>
-      <view class="stitle">
-        <view class="sstitle">
-          <text>E-2426A</text>
-        </view>
-      </view>
 
       <view class="state" wx:if="{{loading}}">
         <text>加载中...</text>

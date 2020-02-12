@@ -1,6 +1,6 @@
 Page {
-  --topImgH: 400rpx; /* 头图高度 */
-  --topImgP: 375rpx; /* 页面开头高度 */
+  --topImgH: 525rpx; /* 头图高度 */
+  --topImgP: 500rpx; /* 页面开头高度 */
 
   --bgcolorB: rgb(240, 240, 240); /* 底色 */
   --bgcolorO: rgb(255, 255, 255); /* 操作选项卡片背景色 */
@@ -8,7 +8,7 @@ Page {
   --bgcolorD: rgb(250, 250, 250); /* 动态卡片背景色 */
   /* rgba(255, 255, 255, 0.3); */
   --navfontSize: 15px; /* 导航栏字号 px */
-  --titlefontSize: 30rpx; /* 标题字号 */
+  --titlefontSize: 48rpx; /* 标题字号 */
   --ltitlefontSize: 28rpx; /* 小标题字号 */
   --ltitlefontLH: 42rpx; /* 小标题行高 1.5 倍字号 */
   --ctitlefontSize: 30rpx; /* 卡片标题字号 */
@@ -68,6 +68,20 @@ Page {
   left: 16px;
 }
 
+.title {
+  position: absolute;
+  top: 250rpx;
+  left: 0;
+  right: 0;
+  font-weight: 700;
+  font-size: var(--titlefontSize);
+  line-height: 96rpx;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  text-shadow: 0 0 30rpx rgb(255, 255, 255);
+}
+
 .container {
   padding: 0;
   margin: 0;
@@ -122,8 +136,8 @@ Page {
 }
 
 .info-container {
-  background: var(--bgcolorB);
-  border-radius: 25rpx;
+  background: var(--bgcolorF);
+  border-radius: 0 0 60rpx 60rpx;
 }
 
 .dyContainer {
@@ -134,7 +148,7 @@ Page {
 
 .card {
   background: var(--bgcolorF);
-  margin: 24rpx 0 24rpx 0;
+  margin: 24rpx 12rpx 24rpx 12rpx;
   border-radius: 20rpx;
   padding: 36rpx;
 }
@@ -152,14 +166,6 @@ Page {
   border-radius: 20rpx;
   margin: 44rpx;
   padding: 36rpx;
-}
-
-.title {
-  padding-top: 30rpx;
-  text-align: center;
-  font-weight: 700;
-  font-size: var(--titlefontSize);
-  color: var(--titleColor);
 }
 
 .stitle {
@@ -184,10 +190,10 @@ Page {
 }
 
 .state {
-  padding-top: 14rpx;
+  line-height: 60rpx;
   text-align: center;
   font-weight: 700;
-  font-size: var(--ltitlefontSize);
+  font-size: var(--ctitlefontSize);
   color: rgba(39, 154, 230, 0.6)
 }
 

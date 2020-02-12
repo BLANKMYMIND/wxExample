@@ -2,7 +2,9 @@ const app = getApp()
 
 Page({
   data: {
-    tophight: wx.getSystemInfoSync().statusBarHeight, // 获取状态栏高度
+    tophight: wx.getSystemInfoSync().statusBarHeight, // 获取状态栏高度 (px)
+    winH: ((750 / wx.getSystemInfoSync().windowWidth) * wx.getSystemInfoSync().windowHeight), // 高度
+
     imgTop: 0, // 用于头图的变速滑动
     isScoped: false, // 用于导航栏的滑动显示
 
@@ -22,7 +24,7 @@ Page({
 
     whyCanBorrow: '设备损坏', // 不可借用原因
 
-    short: true,
+    short: false, // 是否库存紧张
 
   },
   onLoad: function () {
