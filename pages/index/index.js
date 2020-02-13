@@ -15,6 +15,11 @@ Page({
       url: '../detail/index'
     })
   },
+  navToLogin: function() {
+    wx.navigateTo({
+      url: '../login/index'
+    })
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

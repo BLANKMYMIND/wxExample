@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/detail/index"
+    "pages/detail/index",
+    "pages/login/index"
   ],
   "window": {
     "navigationStyle": "custom"

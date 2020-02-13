@@ -1,0 +1,37 @@
+<view class="bg-container">
+  <image class="bg-img" src="../../static/bg.jpg" mode="aspectFill"></image>
+</view>
+
+<view class="bg-cover"></view>
+
+<view class="lg-container">
+  <view class="title">
+    <text>即将登录到 tozsy.com</text>
+  </view>
+  <view class="lg-row">
+    <view class="lg-tip">
+      <text>用户名</text>
+    </view>
+    <input class="lg-input" bindinput="handleU" bindfocus="focusU" bindblur="blurU" style="background: {{uFocus || username === '' ? 'rgba(0, 0, 255, 0.1)' : 'rgba(0, 0, 255, 0.0)'}}">
+    </input>
+  </view>
+  <view class="lg-row">
+    <view class="lg-tip">
+      <text>密码</text>
+    </view>
+    <input class="lg-input" type="password" bindinput="handleP" bindfocus="focusP" bindblur="blurP" style="font-size: 32rpx; background: {{pFocus || password === '' ? 'rgba(0, 0, 255, 0.1)' : 'rgba(0, 0, 255, 0.0)'}}">
+    </input>
+  </view>
+  <view class="lg-bottom">
+    <view class="lg-more">
+      <text>注册账号</text>
+    </view>
+    <view class="lg-confirm" style="box-shadow: {{opBackground}};background: {{username === '' || password === '' ? 'rgba(0, 0, 0, 0.1)' : 'rgba(0, 0, 255, 0.25)'}}">
+      <icon type="success_no_circle" size="48rpx" color="rgba(255, 255, 255, 0.7)" style="margin-top:26rpx" />
+    </view>
+    <view class="lg-more">
+      <text>忘记密码</text>
+    </view>
+  </view>
+
+</view>

@@ -2,11 +2,11 @@
 	"description": "项目配置文件",
 	"packOptions": {
 		"ignore": [
-      {
-        "type": "folder",
-        "value": "preview"
-      }
-    ]
+			{
+				"type": "folder",
+				"value": "preview"
+			}
+		]
 	},
 	"setting": {
 		"urlCheck": true,
@@ -58,6 +58,12 @@
 					"name": "pages/detail/index",
 					"pathName": "pages/detail/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/login/index",
+					"pathName": "pages/login/index",
 					"scene": null
 				}
 			]
