@@ -1,13 +1,57 @@
-<!--index.wxml-->
+<!-- index.wxml
 <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname" bindtap="navToLogin">{{userInfo.nickName}}</text>
+      <image  class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname" >{{userInfo.nickName}}</text>
     </block>
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
+
+<view class="navi" style="height: {{tophight+84}}px;">
+  <view class="navi-content" style="top: {{tophight+7}}px">
+    <view class="navi-left" wx:if="{{!hasUserInfo && canIUse}}" bindtap="getUserInfo">
+      <view class="navi-tip">
+        <button class="navi-button" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 点我登录 </button>
+      </view>
+    </view>
+    <view class="navi-left" wx:else>
+      <image bindtap="bindViewTap" class="navi-left-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="navi-left-t">
+        <view class="navi-left-title">
+          <text>{{userInfo.nickName}}</text>
+        </view>
+        <view class="navi-left-info">
+          <text>尝试，发掘更多可能</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="backContainer"></view>
+
+<view class="container">
+  <view class="container-main" style="margin-top: {{tophight+84}}px;">
+    <view class="page-container">
+      <view class="page-box" bindtap="navToLogin">
+        <image src="../../static/login.png" class="page-img" mode="aspectFill">
+        </image>
+        <view class="page-info">
+          <text>登录界面</text>
+        </view>
+      </view>
+      <view class="page-box" bindtap="toRenderInfo">
+        <image src="../../static/render.png" class="page-img" mode="aspectFill">
+        </image>
+        <view class="page-info">
+          <text>租用详情</text>
+        </view>
+      </view>
+
+    </view>
   </view>
 </view>

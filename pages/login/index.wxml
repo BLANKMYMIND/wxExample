@@ -50,7 +50,7 @@
   </view>
 
   <view class="lg-floor">
-    <view class="lg-more" style="color: rgba(0, 0, 0, 0.4);">
+    <view class="lg-more" style="color: rgba(0, 0, 0, 0.4);" bindtap="toBack">
       <text>放弃登录</text>
     </view>
     <view class="lg-takeplace">
@@ -63,7 +63,7 @@
 
 <view class="ld-container" wx:if="{{loading}}">
   <view class="ld-head">
-    <image class="ld-img" src="../../static/hologram.png" mode="aspectFill">
+    <image class="ld-img" src="../../static/login.png" mode="aspectFill">
     </image>
   </view>
   <view class="ld-word">

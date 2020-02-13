@@ -7,10 +7,12 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    tophight: wx.getSystemInfoSync().statusBarHeight, // 获取状态栏高度 (px)
+    winH: ((750 / wx.getSystemInfoSync().windowWidth) * wx.getSystemInfoSync().windowHeight), // 高度
   },
   //事件处理函数
-  bindViewTap: function() {
+  toRenderInfo: function() {
     wx.navigateTo({
       url: '../detail/index'
     })
@@ -49,11 +51,14 @@ Page({
     }
   },
   getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+    wx.getUserInfo({
+      success: res => {
+        app.globalData.userInfo = res.userInfo
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
     })
   }
 })

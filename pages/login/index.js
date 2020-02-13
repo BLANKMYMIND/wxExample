@@ -117,10 +117,19 @@ Page({
   },
 
   login: function() {
+    let that = this
     if (this.data.username !== '' && this.data.password !== '') {
       this.setData({
         loading: true,
+      }, () => {
+        setTimeout(() => {
+          wx.navigateBack({})
+        }, 1000)
       })
     }
+  },
+
+  toBack: function () {
+    wx.navigateBack({})
   },
 })
