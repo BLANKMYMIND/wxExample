@@ -47,6 +47,24 @@
     <view class="dyContainer" style="height: {{dyHeight}}rpx">
       <view class="dymain" wx:if="{{!loading}}">
 
+        <view class="opcard" style="box-shadow: {{opBackground}};">
+
+          <view class="card-operation">
+            <view class="card-left" wx:if="{{canBorrow && !tracked && !subscribed}}" bindtap="openTable">
+              <text>预约借用</text>
+            </view>
+            <view class="card-between" wx:if="{{canBorrow && !tracked && !subscribed}}">
+            </view>
+            <view class="card-right" wx:if="{{!tracked}}">
+              <text>跟踪设备</text>
+            </view>
+            <view class="card-right" style="color: rgba(0, 0, 0, 0.25)" wx:else>
+              <text>正在跟踪</text>
+            </view>
+          </view>
+
+        </view>
+
         <view class="dycard" wx:if="{{subscribed}}">
           <view class="card-title">
             <view class="card-left">
@@ -101,24 +119,6 @@
           <view class="card-info">
             <text>所剩设备不多，请及时预约</text>
           </view>
-        </view>
-
-        <view class="opcard" style="box-shadow: {{opBackground}};">
-
-          <view class="card-operation">
-            <view class="card-left" wx:if="{{canBorrow && !tracked && !subscribed}}" bindtap="openTable">
-              <text>预约借用</text>
-            </view>
-            <view class="card-between" wx:if="{{canBorrow && !tracked && !subscribed}}">
-            </view>
-            <view class="card-right" wx:if="{{!tracked}}">
-              <text>跟踪设备</text>
-            </view>
-            <view class="card-right" style="color: rgba(0, 0, 0, 0.25)" wx:else>
-              <text>正在跟踪</text>
-            </view>
-          </view>
-
         </view>
 
       </view>

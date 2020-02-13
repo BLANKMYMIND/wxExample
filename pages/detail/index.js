@@ -20,7 +20,7 @@ Page({
     subscribed: false, // 是否已预约
 
     tracked: false, // 是否已跟踪
-    canBorrow: true, // 是否可借用
+    canBorrow: false, // 是否可借用
 
     whyCanBorrow: '设备损坏', // 不可借用原因
 
