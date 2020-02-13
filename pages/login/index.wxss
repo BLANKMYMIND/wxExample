@@ -20,6 +20,47 @@ Page {
   --nobodyColor: rgba(0, 0, 0, 0.4); /* 辅助信息字体颜色 */
   --borderColor: rgba(0, 0, 0, 0.1); /* 一般线体颜色 */
   --acceptColor: rgba(45, 230, 39, 0.6) /* 接受指示颜色 */
+
+  /* 主 770rpx 操作 90rpx */
+}
+
+@keyframes sight {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0.15;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes strech {
+  from {
+    width: 30%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes more {
+  from {
+    height: 680rpx;
+  }
+  to {
+    height: 770rpx;
+  }
+}
+
+@keyframes loadin {
+  from {
+    height: 0rpx;
+  }
+  to {
+    height: 200rpx;
+  }
 }
 
 .bg-container {
@@ -34,13 +75,13 @@ Page {
 .bg-img {
   width: 750rpx;
   height: 100vh;
-  filter: blur(6px);
+  filter: blur(30px);
 }
 
 .bg-cover {
   width: 750rpx;
   height: 100vh;
-  background: rgb(255, 255, 255, 0.9);
+  background: rgb(255, 255, 255, 0.0);
 }
 
 .lg-container {
@@ -49,9 +90,48 @@ Page {
   bottom: 0;
   left: 0;
   right: 0;
-  margin: auto;
-  height: 780rpx;
-  width: 750rpx;
+  margin: auto 20rpx;
+  height: 860rpx;
+  border-radius: 20rpx;
+}
+
+.lg-main {
+  position: absolute;
+  background: rgb(255, 255, 255);
+  left: 0;
+  top: 0;
+  box-shadow: 0 10rpx 24rpx rgba(0, 0, 0, 0.1);
+  border-radius: 20rpx;
+  z-index: 3;
+  height: 770rpx;
+  width: 710rpx;
+}
+
+.lg-vice {
+  margin: auto 20rpx;
+  height: fit-content;
+  width: 670rpx;
+  position: absolute;
+  background: rgb(250, 250, 250);
+  left: 0;
+  top: 0;
+  box-shadow: 0 0 24rpx rgba(0, 0, 0, 0.1);
+  border-radius: 40rpx;
+  z-index: 2;
+}
+
+.lg-floor {
+  margin: auto 100rpx;
+  height: fit-content;
+  width: 510rpx;
+  position: absolute;
+  background: rgb(250, 250, 250);
+  left: 0;
+  bottom: 90rpx;
+  box-shadow: 0 0 24rpx rgba(0, 0, 0, 0.1);
+  border-radius: 40rpx;
+  z-index: 1;
+  text-align: center;
 }
 
 /* background: rgba(250, 250, 250, 0.7);
@@ -67,7 +147,7 @@ Page {
 }
 
 .lg-row {
-  margin: 68rpx 68rpx;
+  margin: 68rpx;
 }
 
 .lg-tip {
@@ -85,20 +165,15 @@ Page {
   height: 96rpx;
   line-height: 48rpx;
   font-weight: 700;
+  animation: strech 0.6s;
+  margin: auto;
 }
 
 .lg-bottom {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin: 96rpx;
-}
-
-.lg-more {
-  font-size: var(--cinfofontSize);
-  color: var(--nobodyColor);
-  text-align: center;
-  text-decoration: underline;
+  margin: 80rpx;
 }
 
 .lg-confirm {
@@ -112,4 +187,78 @@ Page {
   border-radius: 48rpx;
   background: rgba(0, 0, 255, 0.25);
   transition: all 1s ease;
+  animation: sight 0.6s;
+}
+
+.lg-operation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 546rpx;
+  margin: auto;
+  font-weight: 700;
+}
+
+.lg-more {
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: var(--cinfofontSize);
+  color: var(--nobodyColor);
+}
+
+.lg-takeplace {
+  animation: more 1s;
+  height: 770rpx;
+}
+
+.lg-between {
+  border-left: solid 1rpx var(--borderColor);
+  height: 42rpx;
+}
+
+.ld-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 750rpx;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 6;
+}
+
+.ld-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 750rpx;
+  height: 260rpx;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 0 34rpx rgba(0, 0, 0, 0.3);
+  z-index: 7;
+  text-align: center;
+  animation: loadin 0.2s;
+  overflow: hidden;
+  border-radius: 6rpx;
+}
+
+.ld-head {
+  margin-top: 38rpx;
+}
+
+.ld-img {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.ld-word {
+  margin-top: 16rpx;
+  color: var(--softColor);
+  font-size: var(--cinfofontSize);
+  font-weight: 700;
 }
